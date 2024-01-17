@@ -1,16 +1,11 @@
 #Privacy-Preserving Proof-of-Learning via Watermark Trajectory
 
 ## How to run
-Python run.py 
-
-Train GTSRB dataset
-```
-python main.py --dataset GTSRB --num_class 43 --a 0.3 --b 0.1 --weight_decay 0
-```
-Train CelebA dataset
-```
-python main.py --dataset CelebA --num_class 8 --a 0.3 --b 0.1 --weight_decay 1e-4
-```
+python 1train_wm_generator.py
+python 2train_anti_wm_generator.py
+python 3pivot_sample_selection.py
+python 4run_proof_generation.py
+python 5run_verification.py
 
 ## Tips
 Download data from Baidudisk(code:sft2)/Google driver and unzip it to root folder.  
