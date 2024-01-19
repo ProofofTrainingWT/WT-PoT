@@ -4,13 +4,6 @@ from typing import List, Callable
 from torch import Tensor
 from torch.autograd import grad as torch_grad
 
-'''
-Based on the paper 'On the Iteration Complexity of Hypergradient Computation,' this code was created.
-Source: https://github.com/prolearner/hypertorch/blob/master/hypergrad/hypergradients.py
-Original Author: Riccardo Grazzi
-'''
-
-
 class DifferentiableOptimizer:
     def __init__(self, loss_f, dim_mult, data_or_iter=None):
         """
