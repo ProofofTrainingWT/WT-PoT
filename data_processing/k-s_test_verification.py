@@ -77,7 +77,6 @@ def nn_based_ks_test(x_hard, y_hard, y_hard_c, model, factor):
     statistic1, p_value1 = ks_2samp(processed_data, y_hard)
     # print(f"Benign_Statistic: {statistic1}")
     print(f"Benign P-value: {p_value1}")
-    # 使用ks_2samp进行检验
     statistic, p_value = ks_2samp(processed_data, y_hard_c)
     # print(f"Abnormal Statistic: {statistic}")
     print(f"Abnormal P-value: {p_value}")
@@ -105,14 +104,12 @@ def fit_based_ks_test(x_hard, y_hard, y_hard_c, params, factor):
     y_hard_c = y_hard_c - sigmoid((x_hard - opt.moving) / factor, *params)
     # construct the theoretical distribution # use
     def process_window(window):
-        # 对窗口内数据进行线性拟合
         slope, intercept = np.polyfit(np.arange(len(window)), window, 1)
         trend = slope * np.arange(len(window)) + intercept
         detrended = window - trend
         zero_mean = detrended - detrended.mean()
         return zero_mean
 
-    # 设定窗口大小
     window_size = 10
     processed_data = []
 
@@ -134,7 +131,6 @@ def fit_based_ks_test(x_hard, y_hard, y_hard_c, params, factor):
     statistic1, p_value1 = ks_2samp(processed_data, y_hard)
     # print(f"Statistic: {statistic1}")
     print(f"P-value: {p_value1}")
-    # 使用ks_2samp进行检验
     statistic, p_value = ks_2samp(processed_data, y_hard_c)
     # print(f"Statistic: {statistic}")
     print(f"P-value: {p_value}")
@@ -181,7 +177,6 @@ def fit_based_ks_test_improved(x_hard, y_hard, y_hard_c, params, factor, y_hard_
         return zero_mean
 
     def process_window(window, window_ref):
-        # 对窗口内数据进行线性拟合
         slope, intercept = np.polyfit(np.arange(len(window_ref)), window_ref, 1)
         trend = slope * np.arange(len(window_ref)) + intercept
         detrended = window - trend
@@ -221,7 +216,6 @@ def fit_based_ks_test_improved(x_hard, y_hard, y_hard_c, params, factor, y_hard_
     statistic1, p_value1 = ks_2samp(processed_data, y_hard_procssed)
     # print(f"Benign Statistic: {statistic1}")
     print(f"Benign P-value: {p_value1}")
-    # 使用ks_2samp进行检验
     statistic, p_value = ks_2samp(processed_data, y_hard_c_procssed)
     # print(f"Abnormal Statistic: {statistic}")
     print(f"Abnormal P-value: {p_value}")
@@ -295,7 +289,6 @@ def nn_based_ks_test_improved(x_hard, y_hard, y_hard_c, model, factor, y_hard_re
     statistic1, p_value1 = ks_2samp(processed_data, y_hard_procssed)
     # print(f"Benign Statistic: {statistic1}")
     print(f"Benign P-value: {p_value1}")
-    # 使用ks_2samp进行检验
     statistic, p_value = ks_2samp(processed_data, y_hard_c_procssed)
     # print(f"Abnormal Statistic: {statistic}")
     print(f"Abnormal P-value: {p_value}")
