@@ -642,26 +642,11 @@ if __name__ == "__main__":
         }
         torch.save(paras, opt.logpath_clean + str(round) + '.pth')
 
-    # 将张量转换为NumPy数组
     images = images_list[0].to(device)
     revers_trigger = ReverseNet(images)
     revers_trigger = EmbbedNet(revers_trigger[:, 0:3, :, :], revers_trigger[:, 3:6, :, :])
     revers_trigger = (revers_trigger) / 255
     batch_pert = revers_trigger.reshape(-1, 3, opt.image_size, opt.image_size)
     numpy_array = (torch.clip((images[0]+batch_pert[0]), min=0, max=255)).detach().cpu().numpy()
-    # 将通道维度调整到最后
+    
     numpy_array = numpy_array.transpose(1, 2, 0)
-    # 显示图像
-    # plt.imshow(numpy_array)
-    # plt.axis('off')
-    # plt.show()
-    #
-    # numpy_array = images[0].detach().cpu().numpy()
-    # # 将通道维度调整到最后
-    # numpy_array = numpy_array.transpose(1, 2, 0)
-    # # 显示图像
-    # plt.imshow(numpy_array)
-    # plt.axis('off')
-    # plt.show()
-
-    #torch.save(batch_pert, opt.logpath_clean + 'batch_pert.pt')
