@@ -1,12 +1,8 @@
 import subprocess
 import time
 
-# 要重复运行的Python文件
-# python_file = "plot_process_main(new_mec-statistic).py"
-# python_file = "plot_process_main(new_mec-statistic)-sec.py"
 python_file = "data_processing\\k-s_test_verification.py"
 
-# 重复运行之间的延迟时间（秒）
 delay_seconds = 50
 
 log_index_list = list(range(1, 2))
