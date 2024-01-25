@@ -17,9 +17,18 @@ Welcome to the official repository of the "Privacy-Preserving Proof-of-Learning 
 
 WT-PoL operates by creating multiple sub-trajectories throughout the training process. Each sub-trajectory monitors different stages of training, specifically targeting abnormal training iterations. By making the watermark sensitive to these abnormalities, any deviation from the normal training process is quickly detected, ensuring the integrity of the learning process.
 
-## Installation
+## System Requirements
 
-Before running the scripts, ensure you have Python installed on your system. You can download and install Python from [here](https://www.python.org/downloads/).
+**Python Version**: Python 3.8
+**PyTorch Version**: PyTorch 1.8.1
+
+## Dependencies
+
+The training process for the watermark generator (**'1train_wm_generator.py'**) and the anti-watermark generator (**'2train_anti_wm_generator.py'**) depends on an external repository for imperceptible backdoor attacks. You can clone this repository using the following command:
+
+```bash
+git clone [Imperceptible Backdoor Attack](https://github.com/Ekko-zn/IJCAI2022-Backdoor)
+```
 
 ## Running the Code
 
@@ -54,8 +63,3 @@ To run the WT-PoL system, follow these steps in your terminal or command prompt:
 
 We welcome contributions to this project! If you have suggestions or improvements, please fork the repository and submit a pull request.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE.md) - see the LICENSE.md file for details.
-
----
