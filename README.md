@@ -27,7 +27,7 @@ WT-PoL operates by creating multiple sub-trajectories throughout the training pr
 The training process for the watermark generator (**'1train_wm_generator.py'**) and the anti-watermark generator (**'2train_anti_wm_generator.py'**) depends on an external repository for imperceptible backdoor attacks. You can clone this repository using the following command:
 
 ```bash
-git clone [Imperceptible Backdoor Attack](https://github.com/Ekko-zn/IJCAI2022-Backdoor)
+git clone https://github.com/Ekko-zn/IJCAI2022-Backdoor
 ```
 
 ## Running the Code
