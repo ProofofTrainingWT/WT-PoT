@@ -1,6 +1,5 @@
 ---
-
-![Logo](https://github.com/ProofofLearning/images.git/watermark-trajectory.png)
+![Logo](https://github.com/ProofofLearning/images/watermark-trajectory.png)
 # Privacy-Preserving Proof-of-Learning via Watermark Trajectory (WT-PoL)
 
 ## Introduction
