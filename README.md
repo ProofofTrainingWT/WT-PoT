@@ -1,5 +1,5 @@
 ---
-![Logo](watermark-trajectory.png)
+![Logo](wt.png)
 # Privacy-Preserving Proof-of-Learning via Watermark Trajectory (WT-PoL)
 
 ## Introduction
