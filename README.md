@@ -1,5 +1,9 @@
 ---
-# ![Logo](watermark-trajectory.png) Privacy-Preserving Proof-of-Learning via Watermark Trajectory (WT-PoL)
+<p align="center">
+  <img src="watermark-trajectory.png" width="80" alt="Logo">
+</p>
+
+# Privacy-Preserving Proof-of-Learning via Watermark Trajectory (WT-PoL)
 
 ## Introduction
 
