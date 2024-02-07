@@ -442,32 +442,7 @@ def Eval_poison(dataset,feature_r, recoder):
 
     Loss_c = 0
     Correct_c = 0
-    # for fs, labels in dataset:
-    #     fs = fs.to(dtype=torch.float).cuda()
-    #     Triggers = TriggerNet(fs)
-    #     Triggers = EmbbedNet(Triggers[:, 0:3*opt.output_class, :, :],
-    #                          Triggers[:, 3*opt.output_class:6*opt.output_class, :, :])[:, opt.wm_classes, :, :, :]
-    #     Triggers = torch.round(Triggers)/255
-    #     fs = fs.unsqueeze(1).expand(fs.shape[0], len(opt.wm_classes), 3, opt.image_size,
-    #                                 opt.image_size).reshape(-1, 3, opt.image_size, opt.image_size)
-    #     Triggers = Triggers.reshape(-1, 3, opt.image_size, opt.image_size)
-    #     fs = fs + Triggers
-    #     fs = torch.clip(fs, min=0, max=1)
-    #     out, f = Classifer(fs)
-    #     loss_f = MAE(f,feature_r)
-    #     loss = criterion(out, Target_labels)
-    #     _, predicts = out.max(1)
-    #     Correct += predicts.eq(Target_labels).sum().item()
-    #     Loss += loss.item()
-    #     Tot += fs.shape[0]
-    #     L1 += torch.sum(torch.abs(Triggers*255)).item()
-    #     LF += loss_f.item()
-    #
-    #     out_c, _ = Classifer_counterpart(fs)
-    #     loss_c = criterion(out_c, Target_labels)
-    #     _, predicts_c = out_c.max(1)
-    #     Correct_c += predicts_c.eq(Target_labels).sum().item()
-    #     Loss_c += loss_c.item()
+
     Acc = 100*Correct/Tot
     l1_norm = L1/(Tot*3*opt.image_size*opt.image_size)
     LF = LF / len(dataset)
@@ -532,9 +507,9 @@ def ref_f(dataset):
         F_out_counterpart.append(F_counterpart[ii])
 
     F_out = torch.stack(F_out)
-    F_out = F_out.permute(1, 0, 2)[:, list(range(int(opt.wm_classes))), :].reshape(-1,dim_f)
+    F_out = F_out.permute(1, 0, 2)[:, list(range(opt.wm_classes)), :].reshape(-1,dim_f)
     F_out_counterpart = torch.stack(F_out_counterpart)
-    F_out_counterpart = F_out_counterpart.permute(1, 0, 2)[:, list(range(int(opt.wm_classes))), :].reshape(-1, dim_f)
+    F_out_counterpart = F_out_counterpart.permute(1, 0, 2)[:, list(range(opt.wm_classes)), :].reshape(-1, dim_f)
     return F_out.cuda(), F_out_counterpart.cuda()
 
 def getDatasetWHardness():
@@ -588,7 +563,7 @@ def construct_wm_cl_dataset(soft_wmdataset, hard_wmdataset, cleanse_dataset):
     hard_wmdataloader = DataLoader(hard_wmdataset, batch_size=10, shuffle=False, drop_last=False)
     cleansedataloader = DataLoader(cleanse_dataset, batch_size=10, shuffle=False, drop_last=False)
 
-    Target_labels = torch.stack([i * torch.ones(1) for i in list(range(int(opt.wm_classes)))]).expand(
+    Target_labels = torch.stack([i * torch.ones(1) for i in list(range(opt.wm_classes))]).expand(
         int(opt.wm_classes), opt.batch_size + opt.wm_batch_size).permute(1, 0).to(dtype=torch.long,
                                                                                   device='cuda')  # .reshape(-1, 1).squeeze().to(dtype=torch.long,device='cuda')
     with torch.no_grad():
@@ -681,7 +656,7 @@ def construct_wm_cl_dataset(soft_wmdataset, hard_wmdataset, cleanse_dataset):
     return soft_wmdataset_temp, hard_wmdataset_temp, cleanse_dataset_temp
 
 def construct_wm_dataset(wmdataset_list=None):#soft_wmdataset, hard_wmdataset, wm_test_dataset
-    Target_labels = torch.stack([i * torch.ones(1) for i in list(range(int(opt.wm_classes)))]).expand(
+    Target_labels = torch.stack([i * torch.ones(1) for i in list(range(opt.wm_classes))]).expand(
         int(opt.wm_classes), 10).permute(1, 0).to(dtype=torch.long, device='cuda')  # .reshape(-1, 1).squeeze().to(dtype=torch.long,device='cuda')
 
     if len(wmdataset_list) > 0:
@@ -910,7 +885,7 @@ if __name__ == '__main__':
                                     num_workers=opt.num_workers, drop_last=True)
             Train_Warmup(dataloader, recoder_train, recoder_train_cp, epoch)
 
-        elif epoch > 1 and epoch < 7:
+        elif epoch > 1 and epoch < 6:
             opt.interval_batch = 10
             traindataset_temp = getShuffledtDataset(epoch, traindataset, 'soft_trainset')
             wm_dataset_temp = getShuffledtDataset(epoch, soft_wmdataset, 'soft_wm')
@@ -922,7 +897,7 @@ if __name__ == '__main__':
                           remaining_cleanse_dataset_temp,
                           recoder_train, recoder_train_cp, epoch)
 
-        elif epoch >= 7:
+        elif epoch >= 6:
             opt.interval_batch = 10
             traindataset_temp = getShuffledtDataset(epoch, traindataset, 'hard_trainset')
             wm_dataset_temp = getShuffledtDataset(epoch, hard_wmdataset, 'hard_wm')
