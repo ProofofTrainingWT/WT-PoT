@@ -14,9 +14,8 @@ from EmbedModule import Embbed
 import torchvision
 import os.path as osp
 
-if opt.model_type == 'resnet18':
-    Classifer = Models.resnet18() #no trained
-    Classifer.fc = nn.Linear(512, opt.num_class)
+Classifer = Models.resnet18() #no trained
+Classifer.fc = nn.Linear(512, opt.num_class)
 
 Classifer = Classifer.cuda()
 
@@ -218,7 +217,7 @@ if __name__ == '__main__':
     #Classifer.load_state_dict(torch.load(opt.logpath_trigger + str(50) + '.pth')['netC'])
 
     #get one model on a
-    for i in range(1, 3):
+    for i in range(1, 6):
         #the model is saved per 500 batches
         Train_for_subset(dataloader, epoch=i)
 
@@ -232,7 +231,7 @@ if __name__ == '__main__':
     #step 2
     Classifier_e1 = copy.deepcopy(Classifer)
 
-    name_list = ["{:.2f}".format(x * 0.01) for x in list(np.arange(100, 290, 12.5))]
+    name_list = ["{:.2f}".format(x * 0.01) for x in list(np.arange(100, 590, 12.5))]
     print("name_list", name_list)
     list_l1_soft = []
     for i in range(len(name_list)-1):
@@ -247,6 +246,7 @@ if __name__ == '__main__':
         with torch.no_grad():
             list_l1_soft = choose_long_tail(valdataloader, high_confi_list)
         np.save(opt.logpath_data + 'list_l1({}).npy'.format(i+1), list_l1_soft)
+
 
     #np.save(opt.logpath_data + 'list_l1_s.npy', list_l1_low)
     #longtail_list = np.load(opt.logpath_data + 'longtail_index.npy', allow_pickle=True)
