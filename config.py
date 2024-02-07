@@ -60,7 +60,7 @@ opt.logpath_set_idx = './log_files/log_set_idx/{}{}_{}/'.format('(1)', opt.datas
 
 opt.len_soft_wm_data = 2400
 opt.soft_wm_num = 200
-opt.len_hard_wm_data = 300#300
+opt.len_hard_wm_data = 300
 opt.overall_num = 2450
 opt.soft_point_num = 4
 opt.hard_point_num = 4
