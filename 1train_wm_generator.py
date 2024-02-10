@@ -14,9 +14,8 @@ from EmbedModule import Embbed
 import torchvision
 import os.path as osp
 
-if opt.model_type == 'resnet18':
-    Classifer = Models.resnet18() #no trained
-    Classifer.fc = nn.Linear(512, opt.num_class)
+Classifer = Models.resnet18() #no trained
+Classifer.fc = nn.Linear(512, opt.num_class)
 
 Classifer = Classifer.cuda()
 
@@ -341,9 +340,6 @@ def ref_f(dataset):
     return F_out.cuda(), F_out_counterpart.cuda()
 
 if __name__ == '__main__':
-    # opt.logpath_trigger = './log/{}_{}_{}/'.format(opt.dataset,
-    #                                        opt.model_type, opt.tag)
-
     if not os.path.exists(opt.logpath_trigger):
         os.makedirs(opt.logpath_trigger)
     opt.logname = osp.join(opt.logpath_trigger, 'log.tsv')
