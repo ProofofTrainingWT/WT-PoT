@@ -35,9 +35,8 @@ import os.path as osp
 
 root = './Dataset/'
 
-if opt.model_type == 'resnet18':
-    Classifer = Models.resnet18() #no trained
-    Classifer.fc = nn.Linear(512, opt.num_class)
+Classifer = Models.resnet18() #no trained
+Classifer.fc = nn.Linear(512, opt.num_class)
 
 Classifer = Classifer.cuda()
 
@@ -463,9 +462,6 @@ if __name__ == "__main__":
     TriggerNet = TriggerNet.cuda()
     TriggerNet.load_state_dict(torch.load(opt.logpath_trigger + str(opt.trigger_name) + '.pth')['netP'])  #50 previous at epoch=10
     Classifer.load_state_dict(torch.load(opt.logpath_trigger + str(opt.trigger_name) + '.pth')['netC'])   #50 backdoored model at epoch=25
-
-    # opt.logpath_clean =  './log_clean/{}{}_{}_{}/'.format('(1)', opt.dataset,
-                                                      #opt.model_type, opt.follow_tag)
 
     if not os.path.exists(opt.logpath_clean):
         os.makedirs(opt.logpath_clean)
