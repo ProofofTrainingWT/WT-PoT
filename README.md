@@ -38,7 +38,7 @@ conda env create -f environment.yml
 The data utilzied in this paper, CelebA and GTSRB, are open-source databases that need to be downloaded manually. Please refer to the data download sources provided in https://github.com/Ekko-zn/IJCAI2022-Backdoor.
 
 ## Running the Code
-WT-PoL is designed for integrity verification of training, rather than consisting of separate training and evaluation phases. Each run will generate p-values for a benign training process and an abnromal training process, which is related to the WT-PoL(*) proofs (please refer to the .txt files in the follow_log/result directory). Users need to manually judge the completeness of each piece of proof based on the thresholds provided in the paper.
+WT-PoL is designed for integrity verification of training, rather than consisting of separate training and evaluation phases. Each run will generate p-values for a benign training process and an abnromal training process, which is related to the WT-PoL(*) proofs (please refer to the .txt files in the 'follow_log/./results' directory). Users need to manually judge the completeness of each piece of proof based on the thresholds provided in the paper.
 
 To run the WT-PoL system, follow these steps in your terminal or command prompt:
 
