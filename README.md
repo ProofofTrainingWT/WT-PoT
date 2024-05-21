@@ -66,6 +66,12 @@ To run the WT-PoL system, follow these steps in your terminal or command prompt:
    ```bash
    python 5run_verification.py
    ```
+## Experimental Results
+Table 1 below shows the performance of WT-PoL and WT-PoL* across different datasets and models under various threat models and abnormal proportions.
+
+<p align="center">
+  <img src="overall-results.png" width="300" alt="Logo">
+</p>
 
 ## Assets and Licensing Information
 
