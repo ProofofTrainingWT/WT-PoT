@@ -71,16 +71,20 @@ To run the WT-PoL system, follow these steps in your terminal or command prompt:
 
 This project makes use of the following datasets and models, each with their respective licensing and usage terms:
 
-### CelebA Dataset
+**CelebA Dataset**
+
 The CelebA dataset is available for non-commercial research purposes only. Please refer to the [CelebA website](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) for detailed terms of use.
 
-### GTSRB Dataset
+**GTSRB Dataset**
+
 The GTSRB (German Traffic Sign Recognition Benchmark) dataset is available for research purposes. For more details, please see the [GTSRB website](http://benchmark.ini.rub.de/?section=gtsrb&subsection=news).
 
-### DenseNet201
+**DenseNet201**
+
 The DenseNet201 model is provided by the [Keras library](https://keras.io/api/applications/densenet/). It is available under the Apache License 2.0. See the [LICENSE file](https://github.com/keras-team/keras/blob/master/LICENSE) for details.
 
-### ResNeXt101-64x4d
+**ResNeXt101-64x4d**
+
 The ResNeXt101-64x4d model is provided by the [PyTorch library](https://pytorch.org/). It is available under the BSD 3-Clause License. See the [LICENSE file](https://github.com/pytorch/vision/blob/main/LICENSE) for details.
 
 Please ensure that you comply with the licensing terms of each asset used in this project.
