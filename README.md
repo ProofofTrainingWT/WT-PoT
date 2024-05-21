@@ -25,6 +25,14 @@ WT-PoL operates by creating multiple sub-trajectories throughout the training pr
 **Python Version**: Python 3.8
 **PyTorch Version**: PyTorch 1.8.1
 
+## Environment Dependencies
+
+Create your enviroment for WT-PoL using the following command"
+
+```bash
+conda env create -f environment.yml
+```
+
 ## Dependencies
 
 The training process for the watermark generator (**'1train_wm_generator.py'**) and the anti-watermark generator (**'2train_anti_wm_generator.py'**) depends on an external repository for imperceptible backdoor attacks. You can clone this repository using the following command:
