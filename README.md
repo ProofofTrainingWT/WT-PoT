@@ -27,7 +27,7 @@ WT-PoL operates by creating multiple sub-trajectories throughout the training pr
 
 ## Environment Dependencies
 
-Create your enviroment for WT-PoL using the following command"
+Create your enviroment for WT-PoL using the following command:
 
 ```bash
 conda env create -f environment.yml
