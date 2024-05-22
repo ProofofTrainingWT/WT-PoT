@@ -42,6 +42,8 @@ WT-PoL is designed for integrity verification of training, rather than consistin
 
 To run the WT-PoL system, follow these steps in your terminal or command prompt:
 
+**Notification**: Before running each step, please check the parser's `help` and `annotations` in `config.py`. Some hyper-parameters need to be set mannually.
+
 1. **Generate the Initial Watermark**: 
    ```bash
    python 1train_wm_generator.py
