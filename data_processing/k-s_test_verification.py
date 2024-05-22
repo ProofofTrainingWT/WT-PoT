@@ -361,9 +361,9 @@ def main():
     interval_points_hard = 6
     new_mechanism_process = 41
     hard_new_mec_process = 109
-    start_index = 170   #170for gtsrb(21-24)  # (9) #0 (8)# 207 (6)
-    cleanse_points_soft = 36#30  # 40 (3)
-    cleanse_points_hard = 36#30  # 40+14 (3)
+    start_index = 170
+    cleanse_points_soft = 30
+    cleanse_points_hard = 30
 
     areas = []
     areas_counterpart = []
