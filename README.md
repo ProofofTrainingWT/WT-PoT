@@ -16,6 +16,15 @@ Welcome to the official repository of the "Privacy-Preserving Proof-of-Learning 
 - **High Accuracy**: Demonstrates up to 100% accuracy in detecting abnormal training iterations, even with as low as 0.05 proportion of such iterations.
 - **Minimal False Accusations**: Designed to minimize false positives in abnormal training detection.
 
+## Supplementary Experiments Results
+###The Watermark Trajectory Proof on Transformer (ViT-Base-Patch32-128)
+
+<img src="experiments/vit_base_patch32_128(6)_wm.png" alt="Smoothed Raw WT Proofs" width="400">
+
+###The Watermark Trajectory Proof with Data Augmentation on GTSRB
+
+<img src="experiments/densenet121(3)_wm.png" alt="Smoothed Raw WT Proofs" width="400">
+
 ## How WT-PoL Works
 
 WT-PoL operates by creating multiple sub-trajectories throughout the training process. Each sub-trajectory monitors different stages of training, specifically targeting abnormal training iterations. By making the watermark sensitive to these abnormalities, any deviation from the normal training process is quickly detected, ensuring the integrity of the learning process.
