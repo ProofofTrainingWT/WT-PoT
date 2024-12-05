@@ -17,11 +17,11 @@ Welcome to the official repository of the "Privacy-Preserving Proof-of-Learning 
 - **Minimal False Accusations**: Designed to minimize false positives in abnormal training detection.
 
 ## Supplementary Experiments Results
-###The Watermark Trajectory Proof on Transformer (ViT-Base-Patch32-128)
+### The Watermark Trajectory Proof on Transformer (ViT-Base-Patch32-128)
 
 <img src="experiments/vit_base_patch32_128(6)_wm.png" alt="Smoothed Raw WT Proofs" width="400">
 
-###The Watermark Trajectory Proof with Data Augmentation on GTSRB
+### The Watermark Trajectory Proof with Data Augmentation on GTSRB
 
 <img src="experiments/densenet121(3)_wm.png" alt="Smoothed Raw WT Proofs" width="400">
 
