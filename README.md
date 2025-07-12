@@ -95,6 +95,3 @@ The DenseNet201 model is provided by the [Keras library](https://keras.io/api/ap
 **ResNeXt101-64x4d**
 
 The ResNeXt101-64x4d model is provided by the [PyTorch library](https://pytorch.org/). It is available under the BSD 3-Clause License. See the [LICENSE file](https://github.com/pytorch/vision/blob/main/LICENSE) for details.
-
-Please ensure that you comply with the licensing terms of each asset used in this project.
-
