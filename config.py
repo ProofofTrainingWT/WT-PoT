@@ -17,7 +17,7 @@ def get_arguments():
     parser.add_argument("--cl_batch_size", type=int, default=2)
     parser.add_argument("--num_class", type=int, default=43, help="43 for GTSRB; 8 for CelebA")
     parser.add_argument("--output_class", type=int, default=43)
-    parser.add_argument("--wm_classes", type=int, default=6, help='2 for step 3; 6 for step 4')
+    parser.add_argument("--wm_classes", type=int, default=6, help='2 for step 3; 6 for step 1, 4')
     parser.add_argument("--wm_num", type=int, default=30)
     parser.add_argument("--cl_num", type=int, default=300)
     parser.add_argument("--stop_cl_num", type=int, default=0)
