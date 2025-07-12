@@ -3,11 +3,11 @@
   <img src="watermark-trajectory.png" width="80" alt="Logo">
 </p>
 
-# Privacy-Preserving Proof-of-Learning via Watermark Trajectory (WT-PoL)
+# Communication-Efficient and Privacy-Preserving Proof-of-Training via Watermark Trajectory (WT-PoT)
 
 ## Introduction
 
-Welcome to the official repository of the "Privacy-Preserving Proof-of-Learning via Watermark Trajectory" project. Our work introduces an innovative Proof-of-Learning (PoL) method, WT-PoL, which is hinged on a unique watermarking mechanism we call "watermark trajectory". This method is specifically designed for scenarios where ensuring the integrity and authenticity of the learning process is critical.
+Welcome to the official repository of the "Privacy-Preserving Proof-of-Learning via Watermark Trajectory" project. Our work introduces an innovative Proof-of-Training (PoT) method, WT-PoT, which is hinged on a unique watermarking mechanism we call "watermark trajectory". This method is specifically designed for scenarios where ensuring the integrity and authenticity of the learning process is critical.
 
 ### Key Features
 
@@ -22,14 +22,9 @@ It's smoothed with a window size of 5 for clear representation.
 
 <img src="experiments/vit_base_patch32_128(6)_wm.png" alt="Smoothed Raw WT Proofs" width="400">
 
-### The Raw Watermark Trajectory (WT) Proof with Data Augmentation on GTSRB 
-It's smoothed with a window size of 5 for clear representation.
+## How WT-PoT Works
 
-<img src="experiments/densenet121(3)_wm.png" alt="Smoothed Raw WT Proofs" width="400">
-
-## How WT-PoL Works
-
-WT-PoL operates by creating multiple sub-trajectories throughout the training process. Each sub-trajectory monitors different stages of training, specifically targeting abnormal training iterations. By making the watermark sensitive to these abnormalities, any deviation from the normal training process is quickly detected, ensuring the integrity of the learning process.
+WT-PoT operates by creating multiple sub-trajectories throughout the training process. Each sub-trajectory monitors different stages of training, specifically targeting abnormal training iterations. By making the watermark sensitive to these abnormalities, any deviation from the normal training process is quickly detected, ensuring the integrity of the learning process.
 
 ## System Requirements
 
@@ -38,7 +33,7 @@ WT-PoL operates by creating multiple sub-trajectories throughout the training pr
 
 ## Environment Dependencies
 
-Create your enviroment for WT-PoL using the following command:
+Create your enviroment for WT-PoT using the following command:
 
 ```bash
 conda env create -f environment.yml
@@ -49,9 +44,9 @@ conda env create -f environment.yml
 The data utilzied in this paper, CelebA and GTSRB, are open-source databases that need to be downloaded manually. Please refer to the data download sources provided in https://github.com/Ekko-zn/IJCAI2022-Backdoor.
 
 ## Running the Code
-WT-PoL is designed for integrity verification of training, rather than consisting of separate training and evaluation phases. Each run will generate p-values for a benign training process and an abnromal training process, which is related to the WT-PoL(*) proofs (please refer to the `.tsv` files in the `follow_log/./results` directory). Users need to manually judge the completeness of each piece of proof based on the thresholds provided in the paper.
+WT-PoT is designed for integrity verification of training, rather than consisting of separate training and evaluation phases. Each run will generate p-values for a benign training process and an abnromal training process, which is related to the WT-PoT(*) proofs (please refer to the `.tsv` files in the `follow_log/./results` directory). Users need to manually judge the completeness of each piece of proof based on the thresholds provided in the paper.
 
-To run the WT-PoL system, follow these steps in your terminal or command prompt:
+To run the WT-PoT system, follow these steps in your terminal or command prompt:
 
 **Notification**: Before running each step, please check the parser's `help` and `annotations` in `config.py`. Some hyper-parameters need to be set mannually.
 
