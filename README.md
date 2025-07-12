@@ -29,6 +29,7 @@ WT-PoT operates by creating multiple sub-trajectories throughout the training pr
 ## System Requirements
 
 **Python Version**: Python 3.8
+
 **PyTorch Version**: PyTorch 1.8.1
 
 ## Environment Dependencies
